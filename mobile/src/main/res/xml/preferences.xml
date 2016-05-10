@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="connection">
+
+        <EditTextPreference
+                android:key="server"
+                android:title="server"
+                android:inputType="textUri"
+                android:autoText="true"/>
+        <EditTextPreference
+                android:key="serverPort"
+                android:inputType="number"
+                android:title="Port"
+                android:autoText="true"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="credentials">
+        <EditTextPreference
+                android:key="username"
+                android:title="username"
+                android:inputType="text"
+                android:autoText="true"/>
+        <EditTextPreference
+                android:key="password"
+                android:inputType="textPassword"
+                android:title="password"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
