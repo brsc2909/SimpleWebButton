@@ -1,4 +1,4 @@
-package com.example.brsc2909.simplewebbutton;
+package com.example.brsc2909.SimpleWebButton;
 
 import java.util.HashMap;
 

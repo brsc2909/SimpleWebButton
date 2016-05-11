@@ -6,15 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container"
-        tools:context="com.example.brsc2909.simplewebbutton.MainActivity"
+        tools:context="com.example.brsc2909.SimpleWebButton.MainActivity"
         tools:deviceIds="wear">
 
     <TextView
-            android:id="@+id/text"
+            android:id="@+id/frame"
             app:layout_box="all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_world"/>
+    />
 
     <TextView
             android:id="@+id/clock"

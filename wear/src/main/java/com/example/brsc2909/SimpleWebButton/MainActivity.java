@@ -1,4 +1,4 @@
-package com.example.brsc2909.simplewebbutton;
+package com.example.brsc2909.SimpleWebButton;
 
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;

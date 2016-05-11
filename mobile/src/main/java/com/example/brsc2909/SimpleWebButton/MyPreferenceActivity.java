@@ -1,4 +1,4 @@
-package com.example.brsc2909.simplewebbutton;
+package com.example.brsc2909.SimpleWebButton;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -17,5 +17,8 @@ public class MyPreferenceActivity extends PreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
         }
+
+
     }
+
 }

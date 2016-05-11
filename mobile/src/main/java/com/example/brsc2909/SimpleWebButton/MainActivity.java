@@ -1,8 +1,10 @@
-package com.example.brsc2909.simplewebbutton;
+package com.example.brsc2909.SimpleWebButton;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,11 +19,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
-    private String username = "brsc2909";
-    private String password = "Vgn-fw21l";
-
-    private HashMap<String, String> postDataParams = new HashMap<String, String>();
+    private HashMap<String, String> postDataParams = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +41,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void addListenerOnButton() {
+    private void addListenerOnButton() {
         //Select a specific button to bundle it with the action you want
-        postDataParams.put("username", username);
-        postDataParams.put("password", password);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        final String user = sharedPref.getString("username", "null");
+        final String pass = sharedPref.getString("password", "null");
+        final String server = sharedPref.getString("server", "");
+        final String port = sharedPref.getString("serverPort", "");
 
-        button = (Button) findViewById(R.id.button1);
+
+        Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String server = "http://4cdc56cc.ngrok.io";
+                System.out.println(user);
+                System.out.println(pass);
+
                 String page = "open";
+
                 PostData post = new PostData();
                 Post datapost = new Post();
                 try {
-                    datapost.postData(server, page, postDataParams);
+                    postDataParams.put("username", String.valueOf(user));
+                    postDataParams.put("password", String.valueOf(pass));
+                    datapost.postData(server, port, page, postDataParams);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.preferences: {
                 Intent intent = new Intent();
-                intent.setClassName(this, "com.example.brsc2909.simplewebbutton.MyPreferenceActivity");
+                intent.setClassName(this, "com.example.brsc2909.SimpleWebButton.MyPreferenceActivity");
                 startActivity(intent);
                 return true;
             }
@@ -89,5 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
 
